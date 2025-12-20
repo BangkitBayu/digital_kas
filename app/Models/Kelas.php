@@ -12,8 +12,8 @@ class Kelas extends Authenticatable
     use HasApiTokens;
 
     protected $fillable = [
-        "nama_kelas",
-        "kompetensi_keahlian",
+        "kelas",
+        "jurusan",
         "asal_sekolah",
         "password"
     ];

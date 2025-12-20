@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kelas');
-            $table->string('kompetensi_keahlian');
+            $table->string('kelas');
+            $table->string('jurusan');
             $table->string('asal_sekolah');
             $table->string('password');
             $table->rememberToken();
