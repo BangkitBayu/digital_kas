@@ -27,3 +27,4 @@ Route::middleware('auth:kelas')->group(function () {
 
 Route::post('/auth/register', [AuthController::class, 'postRegister']);
 Route::post('/auth/login', [AuthController::class, 'postLogin']);
+Route::post('/auth/reset-password', [AuthController::class, 'resetPassword']);

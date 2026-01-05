@@ -19,6 +19,11 @@
                 </div>
                 <form method="POST" class=" w-full p-2 flex-col space-y-2">
                     @csrf
+                    @if (session('error'))
+                        <div class=" border border-red-500 rounded-sm bg-red-100 text-red-500">
+                            <x-alert status="error" message="{{ session('error') }}"></x-alert>
+                        </div>
+                    @endif
                     <section class=" flex space-x-2 w-full">
                         <div class="form-group flex flex-col w-[50%]">
                             <label for="kelas"
@@ -98,8 +103,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" id=" show-password" x-show="showPassword"
                                     class=" transition-transform delay-150 ease-in-out">
-                                    <g fill="none" stroke="#727272db" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5">
+                                    <g fill="none" stroke="#727272db" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="1.5">
                                         <path d="M3 13c3.6-8 14.4-8 18 0" />
                                         <path d="M12 17a3 3 0 1 1 0-6a3 3 0 0 1 0 6" />
                                     </g>

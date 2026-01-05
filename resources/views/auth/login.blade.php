@@ -15,16 +15,22 @@
             <div class=" flex flex-col space-y-2 p-3 rounded-md w-full shadow-2xl max-w-90 lg:max-w-95 relative">
                 <div class=" flex flex-col w-full text-center">
                     <h1 class=" text-xl font-semibold lg:text-2xl text-primary">Masuk Kembali</h1>
-                    <p class=" text-sm truncate-3 text-secondary">Hai siswa, silahkan masuk kembali ke akun kelas anda.
+                    <p class=" text-sm truncate-3 text-secondary">Hai siswa, silahkan masuk kembali ke akun kelas kamu.
                     </p>
                 </div>
                 <form method="POST" class=" w-full p-2 flex-col space-y-3">
                     @csrf
 
                     @if (session('error'))
-                    <div class=" border border-red-500 rounded-sm bg-red-100 text-red-500">
-                        <x-alert status="error" message="{{ session('error') }}" ></x-alert>
-                    </div>
+                        <div class=" border border-red-500 rounded-sm bg-red-100 text-red-500">
+                            <x-alert status="error" message="{{ session('error') }}"></x-alert>
+                        </div>
+                    @endif
+
+                    @if (session('success'))
+                        <div class=" border border-green-500 rounded-sm bg-green-100 text-green-500">
+                            <x-alert status="success" message="{{ session('success') }}"></x-alert>
+                        </div>
                     @endif
                     <div class="form-group flex flex-col w-full">
                         <label for="kelas"
