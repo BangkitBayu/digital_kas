@@ -51,4 +51,8 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    public function postLogin(): RedirectResponse {
+
+    }
 }

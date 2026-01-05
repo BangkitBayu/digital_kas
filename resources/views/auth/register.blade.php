@@ -14,7 +14,7 @@
         <div class=" w-full flex items-center justify-center min-h-screen">
             <div class=" flex flex-col space-y-2 p-3 rounded-md w-full shadow-2xl max-w-90 lg:max-w-95 relative">
                 <div class=" flex flex-col w-full text-center">
-                    <h1 class=" text-xl font-semibold lg:text-2xl text-primary">Buat Akun</h1>
+                    <h1 class=" text-xl font-semibold lg:text-2xl text-primary">Buat Akun Baru</h1>
                     <p class=" text-sm truncate-3 text-secondary">Hai siswa,buat akun kelas dahulu di DigitalKas.</p>
                 </div>
                 <form method="POST" class=" w-full p-2 flex-col space-y-2">
