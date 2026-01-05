@@ -121,7 +121,7 @@
                         class=" w-full p-2 bg-blue-500 rounded-sm text-sm text-blue-100 cursor-pointer">Register</button>
 
                     <p class=" text-sm font-normal text-center text-secondary mt-2">Jika sudah memiliki akun, silahkan
-                        <a href="/auth/login" class=" text-blue-500 hover:underline">Login.</a>
+                        <a href="{{ route('login') }}" class=" text-blue-500 hover:underline">Login.</a>
                     </p>
                 </form>
             </div>

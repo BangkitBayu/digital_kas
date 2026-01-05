@@ -41,7 +41,7 @@
                         <div class=" flex justify-between w-full">
                             <label for="password"
                                 class=" font-semibold text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Password</label>
-                            <a href="/auth/reset-password"
+                            <a href="{{ route('reset-password') }}"
                                 class=" text-sm text-blue-500 font-normal hover:underline">Lupa password?</a>
                         </div>
                         <div x-data="{ showPassword: false }"
@@ -77,7 +77,7 @@
                         class=" w-full p-2 bg-blue-500 rounded-sm text-sm text-blue-100 cursor-pointer">Login</button>
 
                     <p class=" text-sm font-normal text-center text-secondary mt-2">Jika belum memiliki akun, silahkan
-                        <a href="/auth/register" class=" text-blue-500 hover:underline">Register.</a>
+                        <a href="{{ route('register') }}" class=" text-blue-500 hover:underline">Register.</a>
                     </p>
                 </form>
             </div>
