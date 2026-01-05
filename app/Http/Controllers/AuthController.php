@@ -40,17 +40,14 @@ class AuthController extends Controller
                 'kelas' => $payload['kelas'],
                 'jurusan' => $payload['jurusan'],
                 'asal_sekolah' => $payload['asal_sekolah'],
-                'password' => bcrypt($payload['password'])
+                'password' => Hash::make($payload['password'])
             ]);
-            return redirect('/auth/login')->with([
-                'success' => true,
-                'message' => 'Registrasi berhasil, silahkan login.'
-            ]);
+            return redirect('/auth/login')->with('success', 'Registrasi berhasil, silahkan login.');
         } catch (Exception $e) {
-            return redirect('/auth/register')->with([
-                'success' => false,
-                'message' => 'Registrasi gagal, silahkan coba lagi.'
-            ]);
+            return redirect()->back()->with(
+                'error',
+                'Registrasi gagal, silahkan coba lagi.'
+            );
         }
     }
 

@@ -19,6 +19,13 @@
                 </div>
                 <form method="POST" class=" w-full p-2 flex-col space-y-2">
                     @csrf
+
+                    @if (session('success'))
+                        <div class=" border border-green-500 rounded-sm bg-green-100 text-green-500">
+                            <x-alert status="success" message="{{ session('success') }}"></x-alert>
+                        </div>
+                    @endif
+                    
                     @if (session('error'))
                         <div class=" border border-red-500 rounded-sm bg-red-100 text-red-500">
                             <x-alert status="error" message="{{ session('error') }}"></x-alert>
