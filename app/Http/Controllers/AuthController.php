@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kelas;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -52,7 +53,26 @@ class AuthController extends Controller
         }
     }
 
-    public function postLogin(): RedirectResponse {
+    public function postLogin(Request $request)
+    {
+        $payload = $request->validate([
+            'kelas' => 'required',
+            'password' => 'required'
+        ], [
+            'kelas.required' => "Kelas wajib diisi.",
+            'password.required' => "Password wajib diisi.",
+        ]);
 
+        $credentials = [
+            "kelas" => $payload['kelas'],
+            "password" => $payload['password']
+        ];
+
+        if (!Auth::guard('kelas')->attempt($credentials)) {
+            return redirect()->back()->with('error', 'Maaf, Akun tidak ditemukan, silahkan daftar terlebih dahulu!.');
+        }
+
+        $request->session()->regenerate();
+        return redirect()->intended('/dashboard');
     }
 }

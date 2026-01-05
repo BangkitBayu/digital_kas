@@ -21,6 +21,11 @@
                 <form method="POST" class=" w-full p-2 flex-col space-y-3">
                     @csrf
 
+                    @if (session('error'))
+                    <div class=" border border-red-500 rounded-sm bg-red-100 text-red-500">
+                        <x-alert status="error" message="{{ session('error') }}" ></x-alert>
+                    </div>
+                    @endif
                     <div class="form-group flex flex-col w-full">
                         <label for="kelas"
                             class=" font-semibold text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Kelas</label>
@@ -36,7 +41,8 @@
                         <div class=" flex justify-between w-full">
                             <label for="password"
                                 class=" font-semibold text-sm after:ml-0.5 after:text-red-500 after:content-['*']">Password</label>
-                            <a href="/auth/reset-password" class=" text-sm text-blue-500 font-normal hover:underline">Lupa password?</a>
+                            <a href="/auth/reset-password"
+                                class=" text-sm text-blue-500 font-normal hover:underline">Lupa password?</a>
                         </div>
                         <div x-data="{ showPassword: false }"
                             class=" w-full border rounded-sm px-2 py-1 border-border flex justify-between space-x-2">
