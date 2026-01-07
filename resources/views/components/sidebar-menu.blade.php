@@ -1,5 +1,5 @@
 <div>
-    <aside class=" bg-[#ffffff] lg:min-h-screen lg:w-[20vw] lg:left-0 flex flex-col">
+    <aside class=" lg:min-h-screen lg:w-[20vw] lg:left-0 lg:flex flex-col hidden">
         <div class="container lg:py-2 lg:px-4 lg:h-15 lg:w-full flex items-center justify-start">
             <h3 class=" font-bold text-blue-500 text-xl">DigitalKas</h3>
         </div>
