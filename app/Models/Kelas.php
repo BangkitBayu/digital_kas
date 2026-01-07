@@ -20,6 +20,8 @@ class Kelas extends Authenticatable
 
     protected $hidden = [
         "password",
-        "remember_token"
+        "remember_token",
+        "updated_at",
+        "created_at"
     ];
 }

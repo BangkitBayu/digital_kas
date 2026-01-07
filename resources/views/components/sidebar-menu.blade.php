@@ -1,10 +1,10 @@
 <div>
-    <aside class=" bg-[#ffffff] lg:min-h-screen lg:w-[15%] lg:left-0 flex flex-col">
+    <aside class=" bg-[#ffffff] lg:min-h-screen lg:w-[20vw] lg:left-0 flex flex-col">
         <div class="container lg:py-2 lg:px-4 lg:h-15 lg:w-full flex items-center justify-start">
             <h3 class=" font-bold text-blue-500 text-xl">DigitalKas</h3>
         </div>
         <nav class="container lg:py-2 lg:px-4">
-            <ul class=" border rounded-md border-[#ecececdd]"">
+            <ul>
                 <li class=" hover:bg-blue-200 rounded-md transition-transform ease-in delay-150">
                     <a href="{{ route('dashboard.profile') }}" class=" flex items-center space-x-3 px-3 py-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">

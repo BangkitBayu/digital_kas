@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,8 +24,14 @@ Route::get('/auth/reset-password', function () {
 Route::middleware('auth:kelas')->group(function () {
     Route::group(["prefix" => 'dashboard'], function() {
         Route::get('/profile' , function() {
-            return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
+            if(Auth::check()) {
+                $user = Auth::user();
+                return view('dashboard.profile' , ['title' => 'Digital Kas | Profile' , 'data' => $user]);
+            } else {
+                return redirect('/auth/login' , 403)->with("error" , "Ups, kamu tidak memiliki akses.Silahkan login terlebih dahulu!");
+            }
         })->name('dashboard.profile');
+        Route::post('/profile', [DashboardController::class, 'editProfile']);
         Route::get('/anggota-kelas' , function() {
             return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
         })->name('dashboard.anggota_kelas');
