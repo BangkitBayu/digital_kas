@@ -71,7 +71,7 @@ class AuthController extends Controller
         }
 
         $request->session()->regenerate();
-        return redirect()->intended('/dashboard');
+        return redirect()->intended('/dashboard/profile');
     }
 
     public function resetPassword(Request $request): RedirectResponse
@@ -102,5 +102,9 @@ class AuthController extends Controller
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', "Maaf, terjadi kesalahan saat menyimpan password. Silahkan coba lagi!");
         }
+    }
+
+    public function logout() {
+
     }
 }

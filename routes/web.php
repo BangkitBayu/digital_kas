@@ -20,9 +20,18 @@ Route::get('/auth/reset-password', function () {
 })->name('reset-password');
 
 Route::middleware('auth:kelas')->group(function () {
-    Route::get('/dashboard' , function() {
-        return view('dashboard' , ['title' => 'Digital Kas | Dashboard']);
-    })->name('dashboard');
+    Route::group(["prefix" => 'dashboard'], function() {
+        Route::get('/profile' , function() {
+            return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
+        })->name('dashboard.profile');
+        Route::get('/anggota-kelas' , function() {
+            return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
+        })->name('dashboard.anggota_kelas');
+        Route::get('/kelola-kas' , function() {
+            return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
+        })->name('dashboard.kelola_kas');
+    });
+    Route::get('/auth/logout', [AuthController::class , 'logout'])->name('logout');
 });
 
 Route::post('/auth/register', [AuthController::class, 'postRegister']);
