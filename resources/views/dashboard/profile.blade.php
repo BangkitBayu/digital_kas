@@ -9,10 +9,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class=" bg-[#fafafa] flex">
+<body class=" bg-[#fafafa] lg:flex">
     <x-sidebar-menu></x-sidebar-menu>
     <main class="container lg:w-[80vw] w-full">
-        <div class="container bg-white min-h-screen flex flex-col space-y-4 rounded-s-4xl shadow">
+        <div class="container bg-white min-h-screen flex flex-col space-y-4 lg:rounded-s-4xl shadow lg:mt-0 mt-18">
             <div class="container border-b border-b-[#d8d8d8da] px-8 py-4">
                 <h2 class=" font-semibold text-xl text-primary">Profile {{ $data->kelas }}</h2>
                 <p class=" lg:text-md text-sm text-secondary">Hai siswa, pada bagian profile berisi detail akun kelas kamu.</p>
@@ -41,9 +41,10 @@
                         @csrf
                         <div class="form-group flex flex-col space-y-1">
                             <label for="kelas" class=" text-md text-primary">Kelas</label>
+                            <p class=" text-secondary text-sm">Nama kelas tidak bisa diubah.</p>
                             <input type="text" value="{{ $data->kelas }}"
-                                class=" w-full border border-[#d8d8d8da] px-3 py-2 rounded-xl focus:outline-blue-500 ease-in delay-100 text-sm text-secondary"
-                                name="kelas">
+                                class=" w-full border border-secondary px-3 py-2 rounded-xl bg-blue-100 outline-none text-sm text-secondary"
+                                name="kelas" readonly>
                             @error('kelas')
                                 <span class=" text-red-500 text-sm">{{ $message }}</span>
                             @enderror

@@ -33,7 +33,13 @@ Route::middleware('auth:kelas')->group(function () {
         })->name('dashboard.profile');
         Route::post('/profile', [DashboardController::class, 'editProfile']);
         Route::get('/anggota-kelas' , function() {
-            return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
+            if(Auth::check()) {
+                $user = Auth::user();
+                return view('dashboard.profile' , ['title' => 'Digital Kas | Profile' , 'data' => $user]);
+            } else {
+                return redirect('/auth/login' , 403)->with("error" , "Ups, kamu tidak memiliki akses.Silahkan login terlebih dahulu!");
+            }
+            // return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
         })->name('dashboard.anggota_kelas');
         Route::get('/kelola-kas' , function() {
             return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
