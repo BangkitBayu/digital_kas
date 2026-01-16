@@ -47,6 +47,7 @@ Route::middleware('auth:kelas')->group(function () {
             }
             // return view('dashboard.profile' , ['title' => 'Digital Kas | Profile']);
         })->name('dashboard.anggota_kelas');
+         Route::post('/anggota-kelas', [DashboardController::class, 'addNewMember']);
         Route::get('/kelola-kas', function () {
             return view('dashboard.profile', ['title' => 'Digital Kas | Profile']);
         })->name('dashboard.kelola_kas');

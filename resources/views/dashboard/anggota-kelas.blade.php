@@ -12,8 +12,8 @@
 <body class=" bg-[#fafafa] lg:flex">
     <x-sidebar-menu></x-sidebar-menu>
     <main class="container lg:w-[80vw] w-full relative overflow-hidden" x-data>
-        <div
-            class="container bg-white min-h-screen flex flex-col space-y-4 lg:rounded-s-4xl shadow lg:mt-0 mt-18" x-bind:class="$store.modal.open ? ' blur-sm h-screen w-screen' : ''">
+        <div class="container bg-white min-h-screen flex flex-col space-y-4 lg:rounded-s-4xl shadow lg:mt-0 mt-18"
+            x-bind:class="$store.modal.open ? ' blur-sm h-screen w-screen' : ''">
             <div class="container border-b border-b-[#d8d8d8da] px-8 py-4">
                 <h2 class=" font-semibold text-xl text-primary">Anggota Kelas {{ $data->kelas }}</h2>
                 <p class=" lg:text-md text-sm text-secondary">Hai siswa, pada bagian anggota kelas berisi detail anggota
@@ -52,42 +52,49 @@
                 </div>
             </div>
         </div>
-        <x-modal title="Tambah anggota kelas" textBtn1="Batal" textBtn2="Tambah">
-            <form method="POST" class="flex flex-col space-y-2">
-                <div class="form-group flex flex-col w-full">
-                    <label for="nama" class=" font-semibold text-sm">Nama lengkap</label>
-                    <input type="text" placeholder="John Doe"
-                        class=" mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm @error('nama') border-red-500 @enderror"
-                        name="nama" value="{{ old('nama') }}">
-                    @error('nama')
-                        <span class=" text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group flex flex-col w-full">
-                    <label for="role" class=" font-semibold text-sm">Role</label>
-                    <select name="role" id="role"
-                        class="mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm">
-                        <option>Pilih role</option>
-                        <option value="ketuaKelas">Ketua Kelas</option>
-                        <option value="wakilKetuaKelas">Wakil Ketua Kelas</option>
-                        <option value="sekertaris">Sekertaris</option>
-                        <option value="bendahara">Bendahara</option>
-                        <option value="anggota">Anggota</option>
-                    </select>
-                    @error('role')
-                        <span class=" text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group flex flex-col w-full">
-                    <label for="no_telepon" class=" font-semibold text-sm">No telepon</label>
-                    <input type="number" placeholder="081234567890"
-                        class=" mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm @error('no_telepon') border-red-500 @enderror"
-                        name="no_telepon" value="{{ old('no_telepon') }}">
-                    @error('no_telepon')
-                        <span class=" text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-            </form>
+        <x-modal title="Tambah anggota kelas">
+            <x-slot name="main">
+                <form method="POST" class="flex flex-col space-y-2">
+                    <div class="form-group flex flex-col w-full">
+                        <label for="nama" class=" font-semibold text-sm">Nama lengkap</label>
+                        <input type="text" placeholder="John Doe"
+                            class=" mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm @error('nama') border-red-500 @enderror"
+                            name="nama" value="{{ old('nama') }}">
+                        @error('nama')
+                            <span class=" text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group flex flex-col w-full">
+                        <label for="role" class=" font-semibold text-sm">Role</label>
+                        <select name="role" id="role"
+                            class="mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm">
+                            <option>Pilih role</option>
+                            <option value="ketuaKelas">Ketua Kelas</option>
+                            <option value="wakilKetuaKelas">Wakil Ketua Kelas</option>
+                            <option value="sekertaris">Sekertaris</option>
+                            <option value="bendahara">Bendahara</option>
+                            <option value="anggota">Anggota</option>
+                        </select>
+                        @error('role')
+                            <span class=" text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group flex flex-col w-full">
+                        <label for="no_telepon" class=" font-semibold text-sm">No telepon</label>
+                        <input type="number" placeholder="081234567890"
+                            class=" mt-1 w-full border rounded-sm px-3 py-1 focus:outline-blue-500 border-[#d8d8d8da] text-primary text-sm @error('no_telepon') border-red-500 @enderror"
+                            name="no_telepon" value="{{ old('no_telepon') }}">
+                        @error('no_telepon')
+                            <span class=" text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    {{-- <button type="submit" form="modalForm">v</button> --}}
+                </form>
+            </x-slot>
+            <x-slot name="footer">
+                <button class="px-1 py-2 w-[50%] text-sm bg-blue-500 text-white rounded-xl cursor-pointer"
+                    type="submit">Tambah</button>
+            </x-slot>
         </x-modal>
 
     </main>

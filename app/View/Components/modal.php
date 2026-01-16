@@ -18,14 +18,12 @@ class modal extends Component
      */
 
     public string $title;
-    public string $textBtn1;
-    public string $textBtn2;
+    public string $textBtn;
 
-    public function __construct(?string $title , ?string $textBtn1 , ?string $textBtn2)
+    public function __construct(?string $title , string $textBtn = "Batal")
     {
         $this->title = $title;
-        $this->textBtn1 = $textBtn1;
-        $this->textBtn2 = $textBtn2;
+        $this->textBtn = $textBtn;
     }
 
     /**
