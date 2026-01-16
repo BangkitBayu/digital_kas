@@ -5,10 +5,10 @@
 <div>
     <aside
         class=" lg:min-h-screen lg:w-[20vw] lg:left-0 flex lg:flex-col lg:bg-transparent top-0 lg:relative fixed w-full bg-blue-500"
-        x-data='{ openNav: true }'>
+        x-data='{ openNav: false }'>
         <div class="container lg:py-2 lg:px-4 lg:h-15 lg:w-full flex items-center lg:justify-start justify-between p-5">
             <h3 class=" font-bold lg:text-blue-500 lg:text-xl text-2xl text-white">
-                KasNeda
+                {{ env('APP_NAME', 'laravel') }}
             </h3>
             <button
                 class="lg:hidden flex flex-col space-y-1 relative cursor-pointer group transform-content ease-in delay-150"
@@ -26,7 +26,7 @@
             <div class=" space-y-6 relative">
                 <div class=" flex justify-between items-center px-6">
                     <h3 class=" font-bold lg:text-blue-500 lg:text-xl text-2xl text-white">
-                        KasNeda
+                        {{ env('APP_NAME', 'laravel') }}
                     </h3>
                     <button
                         class="lg:hidden flex flex-col space-y-1 relative cursor-pointer group transform-content ease-in delay-150 me-3 -rotate-y-180"
@@ -40,7 +40,7 @@
                     <ul class=" flex flex-col space-y-4">
                         <li class="group relative">
                             <span
-                                class='absolute w-2 h-full rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.profile') ? "block" : "hidden" }}'></span>
+                                class='absolute w-2 h-full rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.profile') ? 'block' : 'hidden' }}'></span>
                             <a href="{{ route('dashboard.profile') }}"
                                 class=" flex items-center space-x-3 py-3 px-6 group-hover:opacity-100 opacity-50 transition-all ease-in-out delay-150 {{ request()->routeIs('dashboard.profile') ? "$activePage" : $inactivePage }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -56,7 +56,7 @@
                         </li>
                         <li class=" group ">
                             <span
-                                class='absolute w-2 h-12 rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.anggota_kelas') ? "block" : "hidden" }}'></span>
+                                class='absolute w-2 h-12 rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.anggota-kelas') ? 'block' : 'hidden' }}'></span>
                             <a href="{{ route('dashboard.anggota_kelas') }}"
                                 class=" flex items-center space-x-3 py-3 px-6 group-hover:opacity-100 opacity-50 transition-all ease-in-out delay-150 {{ request()->routeIs('dashboard.anggota_kelas') ? "$activePage" : $inactivePage }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -69,7 +69,7 @@
                         </li>
                         <li class=" group">
                             <span
-                                class='absolute w-2 h-full rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.kelola_kas') ? "block" : "hidden" }}'></span>
+                                class='absolute w-2 h-full rounded-e-2xl bg-white left-0 {{ request()->routeIs('dashboard.kelola_kas') ? 'block' : 'hidden' }}'></span>
                             <a href="{{ route('dashboard.kelola_kas') }}"
                                 class=" flex items-center space-x-3 py-3 px-6 group-hover:opacity-100 opacity-50 transition-all ease-in-out delay-150 {{ request()->routeIs('dashboard.kelola_kas') ? "$activePage" : $inactivePage }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -101,7 +101,8 @@
                         <p>Logout</p>
                     </button>
                 </a>
-                <p class=" text-white opacity-50 mt-3 text-center text-sm">&copy; <span x-text="year"></span> KasNeda - Solusi
+                <p class=" text-white opacity-50 mt-3 text-center text-sm">&copy; <span x-text="year"></span> KasNeda -
+                    Solusi
                     digital untuk membantu mengelola keuangan kelas</p>
             </div>
         </div>

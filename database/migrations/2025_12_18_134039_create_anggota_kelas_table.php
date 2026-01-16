@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('no_telepon');
             $table->timestamps();
 
-            $table->foreignId('kelas_id')->references('id')->on('kelas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('kelas_id')->constrained();
         });
     }
 
